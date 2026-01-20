@@ -169,22 +169,22 @@ console.log('%cCart Items:', 'color: #4aa3df; font-weight: bold;', cartCount);
 
 
 // Product Image Swap for Mobile
-const productImages = document.querySelectorAll('.product-image');
-const isTouchDevice = 'ontouchstart' in window;
+// const productImages = document.querySelectorAll('.product-image');
+// const isTouchDevice = 'ontouchstart' in window;
 
-if (isTouchDevice) {
-    productImages.forEach(image => {
-        image.addEventListener('click', function (e) {
-            e.stopPropagation();
-            this.classList.toggle('active');
-        });
-    });
+// if (isTouchDevice) {
+//     productImages.forEach(image => {
+//         image.addEventListener('click', function (e) {
+//             e.stopPropagation();
+//             this.classList.toggle('active');
+//         });
+//     });
 
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.product-image')) {
-            productImages.forEach(img => img.classList.remove('active'));
-        }
-    });
-}
+//     document.addEventListener('click', function (e) {
+//         if (!e.target.closest('.product-image')) {
+//             productImages.forEach(img => img.classList.remove('active'));
+//         }
+//     });
+// }
 
 // ===== END OF SCRIPT =====
