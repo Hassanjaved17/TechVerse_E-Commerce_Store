@@ -287,7 +287,7 @@ body {
 .product-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    border-color: #4aa3df;
+
 }
 
 .product-card img {
@@ -322,7 +322,7 @@ body {
 .product-card button {
     margin-top: 16px;
     padding: 12px 24px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s;
@@ -347,6 +347,71 @@ body {
     font-weight: 600;
     border-radius: 4px;
     letter-spacing: 0.5px;
+}
+
+
+.product-image {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-image img {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.4s ease;
+}
+
+.product-image .img-main {
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.product-image .img-hover {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Desktop Hover */
+@media (hover: hover) {
+    .product-card:hover .product-image .img-main {
+        opacity: 0;
+    }
+
+    .product-card:hover .product-image .img-hover {
+        opacity: 1;
+    }
+}
+
+/* Mobile Tap */
+.product-image.active .img-main {
+    opacity: 0;
+}
+
+.product-image.active .img-hover {
+    opacity: 1;
+}
+
+.product-image .img-hover {
+    transform: translateX(100%);
+    opacity: 1;
+}
+
+.product-card:hover .product-image .img-main {
+    transform: translateX(-100%);
+}
+
+.product-card:hover .product-image .img-hover {
+    transform: translateX(-50%);
 }
 
 /* ===== FOOTER ===== */
@@ -382,7 +447,7 @@ body {
 
 .brand .footer-logo {
     margin-bottom: 10px;
-    
+
 }
 
 

@@ -1,14 +1,3 @@
-
-// let count = 0;
-// const cartCount = document.getElementById("cart-count");
-
-// document.querySelectorAll(".add-cart").forEach(btn => {
-//     btn.addEventListener("click", () => {
-//         count++;
-//         cartCount.innerText = count;
-//     });
-// });
-
 // ============================================
 // TECHVERSE - JavaScript Functionality
 // ============================================
@@ -62,6 +51,7 @@ const addToCartButtons = document.querySelectorAll('.product-card button');
 if (addToCartButtons) {
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function () {
+            alert('Product added to cart!');
             // Increment cart
             cartCount++;
             if (cartCountElement) {
@@ -175,5 +165,26 @@ if (userIcon) {
 // ===== CONSOLE LOG =====
 console.log('%c🚀 TechVerse Website Loaded Successfully!', 'color: #4aa3df; font-size: 16px; font-weight: bold;');
 console.log('%cCart Items:', 'color: #4aa3df; font-weight: bold;', cartCount);
+
+
+
+// Product Image Swap for Mobile
+const productImages = document.querySelectorAll('.product-image');
+const isTouchDevice = 'ontouchstart' in window;
+
+if (isTouchDevice) {
+    productImages.forEach(image => {
+        image.addEventListener('click', function (e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.product-image')) {
+            productImages.forEach(img => img.classList.remove('active'));
+        }
+    });
+}
 
 // ===== END OF SCRIPT =====
