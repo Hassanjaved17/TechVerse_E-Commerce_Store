@@ -1,0 +1,41 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: #F8F9FA !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #585858 !important;
+    transition: color 0.3s ease;
+}
+
+.card {
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    padding: 20px;
+}
+
+.btn-dark {
+    border-radius: 0;
+}
+
+.card .badge {
+    font-size: 0.8rem;
+    padding: 0.5em 0.6em;
+    border-radius: 0.25rem;
+}
