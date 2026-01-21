@@ -129,32 +129,57 @@ if (userIcon) {
 // }
 
 
-
 document.querySelectorAll('.product-image img').forEach(img => {
     const mainSrc = img.dataset.main;
     const hoverSrc = img.dataset.hover;
 
-    img.addEventListener('mouseenter', () => {
-        img.classList.add('swap-out');
+    let animating = false;
+    img.classList.add('center');
+
+    function getDirection(e) {
+        const rect = img.getBoundingClientRect();
+        return (e.clientX - rect.left) < rect.width / 2 ? 'left' : 'right';
+    }
+
+    function slideSwap(newSrc, direction) {
+        if (animating || img.src.includes(newSrc)) return;
+        animating = true;
+
+        const outClass = direction === 'left' ? 'out-right' : 'out-left';
+        const inClass = direction === 'left' ? 'in-left' : 'in-right';
+
+        img.classList.remove('center');
+        img.classList.add(outClass);
 
         setTimeout(() => {
-        img.src = hoverSrc;
-    img.classList.remove('swap-out');
-    img.classList.add('swap-in');
-        }, 200);
+            img.src = newSrc;
+
+            img.classList.remove(outClass);
+            img.classList.add(inClass);
+
+            img.offsetHeight; // force reflow
+
+            img.classList.remove(inClass);
+            img.classList.add('center');
+
+            setTimeout(() => animating = false, 450);
+        }, 220);
+    }
+
+    img.addEventListener('mouseenter', e => {
+        slideSwap(hoverSrc, getDirection(e));
     });
 
-    img.addEventListener('mouseleave', () => {
-        img.classList.add('swap-out');
+    img.addEventListener('mouseleave', e => {
+        slideSwap(mainSrc, getDirection(e));
+    });
 
-        setTimeout(() => {
-        img.src = mainSrc;
-    img.classList.remove('swap-out');
-    img.classList.add('swap-in');
-        }, 200);
+    // Mobile tap support
+    img.addEventListener('click', () => {
+        const showingHover = img.src.includes(hoverSrc);
+        slideSwap(showingHover ? mainSrc : hoverSrc, 'right');
     });
 });
-
 
 
 // ===== END OF SCRIPT =====
