@@ -1,6 +1,4 @@
-// ============================================
 // TECHVERSE - JavaScript Functionality
-// ============================================
 
 // ===== MOBILE NAVIGATION TOGGLE =====
 const navToggle = document.getElementById('navToggle');
@@ -84,30 +82,6 @@ if (addToCartButtons) {
     });
 }
 
-// ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// ===== STICKY NAVBAR SHADOW ON SCROLL =====
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
-    }
-});
-
 // ===== ADD BOUNCE ANIMATION FOR CART =====
 const style = document.createElement('style');
 style.textContent = `
@@ -118,33 +92,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ===== PRODUCT CARD ANIMATION ON SCROLL =====
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '0';
-            entry.target.style.transform = 'translateY(30px)';
-
-            setTimeout(() => {
-                entry.target.style.transition = 'all 0.6s ease';
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }, 100);
-
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Observe all product cards
-document.querySelectorAll('.product-card').forEach(card => {
-    observer.observe(card);
-});
 
 // ===== SEARCH FUNCTIONALITY (BASIC) =====
 const searchIcon = document.querySelector('.fa-search');
@@ -161,12 +108,6 @@ if (userIcon) {
         alert('Login/Register functionality coming soon!');
     });
 }
-
-// ===== CONSOLE LOG =====
-console.log('%c🚀 TechVerse Website Loaded Successfully!', 'color: #4aa3df; font-size: 16px; font-weight: bold;');
-console.log('%cCart Items:', 'color: #4aa3df; font-weight: bold;', cartCount);
-
-
 
 // Product Image Swap for Mobile
 // const productImages = document.querySelectorAll('.product-image');
@@ -186,5 +127,34 @@ console.log('%cCart Items:', 'color: #4aa3df; font-weight: bold;', cartCount);
 //         }
 //     });
 // }
+
+
+
+document.querySelectorAll('.product-image img').forEach(img => {
+    const mainSrc = img.dataset.main;
+    const hoverSrc = img.dataset.hover;
+
+    img.addEventListener('mouseenter', () => {
+        img.classList.add('swap-out');
+
+        setTimeout(() => {
+        img.src = hoverSrc;
+    img.classList.remove('swap-out');
+    img.classList.add('swap-in');
+        }, 200);
+    });
+
+    img.addEventListener('mouseleave', () => {
+        img.classList.add('swap-out');
+
+        setTimeout(() => {
+        img.src = mainSrc;
+    img.classList.remove('swap-out');
+    img.classList.add('swap-in');
+        }, 200);
+    });
+});
+
+
 
 // ===== END OF SCRIPT =====

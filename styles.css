@@ -381,6 +381,18 @@ body {
     z-index: 1;
 }
 
+/* Animation classes added by JS */
+.swap-out {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.swap-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
 /* Desktop Hover */
 @media (hover: hover) {
     .product-card:hover .product-image .img-main {
