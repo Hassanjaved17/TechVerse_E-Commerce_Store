@@ -1,5 +1,3 @@
-
-
 // ===== MOBILE NAVIGATION TOGGLE =====
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
@@ -471,7 +469,6 @@ window.addEventListener("scroll", () => {
 });
 
 // ===== END OF SCRIPT =====
-
 
 /*
   Project : TechVerse
