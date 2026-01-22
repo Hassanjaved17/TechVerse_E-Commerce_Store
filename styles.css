@@ -86,11 +86,23 @@ section {
     width: 0;
     height: 2px;
     background: #4aa3df;
-    transition: width 0.3s;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+}.nav-links a::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 
 .nav-links a:hover::after {
     width: 100%;
+}
+
+.nav-links a.active {
+    /* background: #4AA3DF; */
+    /* padding: 16px 14px; */
+    color: #4AA3DF;
+    /* border-radius: 6px; */
 }
 
 .nav-icons {
@@ -315,7 +327,7 @@ section {
     transition: transform 0.45s ease;
 }
 
-/* SLIDE STATES (USED BY JS) */
+
 /* positions */
 .center {
     transform: translateX(0);

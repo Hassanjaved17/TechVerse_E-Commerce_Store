@@ -39,6 +39,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <!-- AOS CDN -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
@@ -80,12 +83,13 @@
     <!-- Hero Section Start -->
     <section class="hero" id="home">
         <div class="container hero-inner">
-            <div class="hero-text">
+            <div class="hero-text" data-aos="fade-up">
                 <h1>Smart Digital Store</h1>
                 <p>Latest gadgets collection with free delivery</p>
                 <button class="btn">Shop Now</button>
             </div>
-            <img src="images/hero-banner-image.webp" alt="Latest tech gadgets and devices">
+            <img src="images/hero-banner-image.webp" alt="Latest tech gadgets and devices" data-aos="fade-left"
+                data-aos-delay="200">
         </div>
     </section>
     <!-- Hero Section End -->
@@ -95,7 +99,7 @@
         <div class="container">
             <div class="row text-center gy-4">
 
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-box d-flex gap-3 align-items-start">
                         <i class="fa fa-cart-shopping"></i>
                         <div>
@@ -105,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-box d-flex gap-3 align-items-start">
                         <i class="fa-solid fa-award"></i>
                         <div>
@@ -115,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-box d-flex gap-3 align-items-start">
                         <i class="fa-solid fa-tag"></i>
                         <div>
@@ -125,7 +129,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-box d-flex gap-3 align-items-start">
                         <i class="fa-solid fa-shield-halved"></i>
                         <div>
@@ -144,53 +148,53 @@
     <!-- Mobile Products Start -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">MOBILE PRODUCTS</h2>
+            <h2 class="section-title" data-aos="fade-right">MOBILE PRODUCTS</h2>
             <div class="product-grid">
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in">
                     <span class="badge">SALE</span>
                     <div class="product-image">
-                        <img src="images/cards-images/product-item1.webp"
-                            data-main="images/cards-images/product-item1.jpg"
-                            data-hover="images/cards-images/product-item-1-hover.webp" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-1.jpeg"
+                            data-main="images/cards-images/product-item-1.jpeg"
+                            data-hover="images/cards-images/product-item-1-hover.jpeg" alt="iPhone 12">
                     </div>
-                    <h6>IPHONE 10</h6>
-                    <p class="price"> $900 <span>$1500</span> </p>
+                    <h6>IPHONE 12</h6>
+                    <p class="price"> $1700 <span>$2400</span> </p>
                     <button>ADD TO CART</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="product-image">
-                        <img src="images/cards-images/product-item2.jpg"
-                            data-main="images/cards-images/product-item2.jpg"
-                            data-hover="images/cards-images/product-item-2-hover.webp" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-2.jpeg"
+                            data-main="images/cards-images/product-item-2.jpeg"
+                            data-hover="images/cards-images/product-item-2-hover.jpeg" alt="iPhone 13">
                     </div>
-                    <h6>IPHONE 11</h6>
-                    <p class="price">$1200</p>
+                    <h6>IPHONE 13</h6>
+                    <p class="price">$3000</p>
                     <button>ADD TO CART</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="product-image">
-                        <img src="images/cards-images/product-item3.jpg"
-                            data-main="images/cards-images/product-item3.jpg"
-                            data-hover="images/cards-images/product-item-3-hover.jpeg" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-3.jpeg"
+                            data-main="images/cards-images/product-item-3.jpeg"
+                            data-hover="images/cards-images/product-item-3-hover.jpeg" alt="iPhone 15">
                     </div>
 
-                    <h6>IPHONE 8</h6>
-                    <p class="price">$500</p>
+                    <h6>IPHONE 15</h6>
+                    <p class="price">$5000</p>
                     <button>ADD TO CART</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="300">
                     <span class="badge">SALE</span>
                     <div class="product-image">
                         <img src="images/cards-images/product-item-4.jpeg"
                             data-main="images/cards-images/product-item-4.jpeg"
-                            data-hover="images/cards-images/product-item-4-hover.jpg" alt="iPhone 10">
+                            data-hover="images/cards-images/product-item-4-hover.jpeg" alt="iPhone 17">
                     </div>
 
                     <h6>IPHONE 17</h6>
-                    <p class="price"> $4800 <span>$6000</span> </p>
+                    <p class="price"> $6500 <span>$7500</span> </p>
                     <button>ADD TO CART</button>
                 </div>
             </div>
@@ -201,36 +205,36 @@
     <!-- Smart Watches Products Start -->
     <section class="products" id="watches">
         <div class="container">
-            <h2 class="section-title">SMART WATCHES</h2>
+            <h2 class="section-title" data-aos="fade-right">SMART WATCHES</h2>
             <div class="product-grid">
-                <div class="product-card">
-                    <span class="badge">SALE</span>
+                <div class="product-card" data-aos="zoom-in">
                     <div class="product-image">
-                        <img src="images/cards-images/product-item6.jpg"
-                            data-main="images/cards-images/product-item6.jpg"
-                            data-hover="images/cards-images/product-item-6-hover.jpeg" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-6.jpeg"
+                            data-main="images/cards-images/product-item-6.jpeg"
+                            data-hover="images/cards-images/product-item6-hover.jpg" alt="pink watch">
                     </div>
                     <h6>PINK WATCH</h6>
+                    <p class="price"> $970 </p>
+                    <button>ADD TO CART</button>
+                </div>
+
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+                    <span class="badge">SALE</span>
+                    <div class="product-image">
+                        <img src="images/cards-images/product-item-7.jpeg"
+                            data-main="images/cards-images/product-item-7.jpeg"
+                            data-hover="images/cards-images/product-item7-hover.jpg" alt="smart watch">
+                    </div>
+                    <h6>HEAVY WATCH</h6>
                     <p class="price"> $870 <span>$1100</span> </p>
                     <button>ADD TO CART</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="product-image">
-                        <img src="images/cards-images/product-item7.jpg"
-                            data-main="images/cards-images/product-item7.jpg"
-                            data-hover="images/cards-images/product-item-7-hover.jpeg" alt="iPhone 10">
-                    </div>
-                    <h6>HEAVY WATCH</h6>
-                    <p class="price">$890</p>
-                    <button>ADD TO CART</button>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="images/cards-images/product-item8.jpg"
-                            data-main="images/cards-images/product-item8.jpg"
-                            data-hover="images/cards-images/product-item-8-hover.jpeg" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-8.jpeg"
+                            data-main="images/cards-images/product-item-8.jpeg"
+                            data-hover="images/cards-images/product-item8-hover.jpg" alt="spotted watch">
                     </div>
 
                     <h6>SPOTTED WATCH</h6>
@@ -238,16 +242,16 @@
                     <button>ADD TO CART</button>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" data-aos="zoom-in" data-aos-delay="300">
                     <span class="badge">SALE</span>
                     <div class="product-image">
-                        <img src="images/cards-images/product-item9.jpg"
-                            data-main="images/cards-images/product-item9.jpg"
-                            data-hover="images/cards-images/product-item-9-hover.jpeg" alt="iPhone 10">
+                        <img src="images/cards-images/product-item-9.jpeg"
+                            data-main="images/cards-images/product-item-9.jpeg"
+                            data-hover="images/cards-images/product-item9-hover.jpg" alt="black watch">
                     </div>
 
                     <h6>BLACK WATCH</h6>
-                    <p class="price"> $950 <span>$1480</span> </p>
+                    <p class="price"> $1500 <span>$2200</span> </p>
                     <button>ADD TO CART</button>
                 </div>
             </div>
@@ -256,14 +260,14 @@
     <!-- Smart Watches Products End -->
     <!-- Products Section End -->
 
-    <!-- Promotional Banner Section -->
+    <!-- Promotional Sale Banner Section Start -->
     <section class="promo-banner" id="sale">
         <div class="container">
             <div class="banner-slider">
 
                 <!-- Slide 1 -->
                 <div class="banner-slide active">
-                    <div class="banner-content">
+                    <div class="banner-content" data-aos="fade-up">
                         <div class="banner-text">
                             <p class="discount-tag">10% off</p>
                             <h2 class="banner-title">NEW YEAR SALE</h2>
@@ -277,7 +281,7 @@
 
                 <!-- Slide 2 (Optional) -->
                 <div class="banner-slide">
-                    <div class="banner-content">
+                    <div class="banner-content" data-aos="fade-up">
                         <div class="banner-text">
                             <p class="discount-tag">20% off</p>
                             <h2 class="banner-title">SMART WATCH DEALS</h2>
@@ -291,7 +295,7 @@
 
                 <!-- Slide 3 (Optional) -->
                 <div class="banner-slide">
-                    <div class="banner-content">
+                    <div class="banner-content" data-aos="fade-up">
                         <div class="banner-text">
                             <p class="discount-tag">15% off</p>
                             <h2 class="banner-title">WIRELESS EARBUDS</h2>
@@ -313,18 +317,19 @@
             </div>
         </div>
     </section>
+    <!-- Promotional Sale Banner Section End -->
 
     <!-- Latest Products Sec Start -->
     <section class="latest-posts">
         <div class="container">
             <div class="posts-header">
                 <h2>LATEST POSTS</h2>
-                <a href="#" class="read-blog">READ BLOG</a>
+                <a href="#blog" class="read-blog">READ BLOG</a>
             </div>
 
             <div class="posts-grid">
                 <!-- Post 1 -->
-                <div class="post-card">
+                <div class="post-card" data-aos="fade-up">
                     <div class="post-img">
                         <img src="./images/cards-images/post-item1.jpg" alt="Gadgets 2023">
                     </div>
@@ -333,7 +338,7 @@
                 </div>
 
                 <!-- Post 2 -->
-                <div class="post-card">
+                <div class="post-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="post-img">
                         <img src="./images/cards-images/post-item2.jpg" alt="Technology Hack">
                     </div>
@@ -342,7 +347,7 @@
                 </div>
 
                 <!-- Post 3 -->
-                <div class="post-card">
+                <div class="post-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="post-img">
                         <img src="./images/cards-images/post-item3.jpg" alt="Small Camera">
                     </div>
@@ -356,8 +361,8 @@
     <!-- Latest Products Sec End -->
 
 
-    <!-- Testimonial Section -->
-    <section class="testimonial-section">
+    <!-- Testimonial Section  Start -->
+    <section class="testimonial-section" id="blog">
         <div class="container">
             <div class="testimonial-slider">
 
@@ -367,7 +372,7 @@
                 </button>
 
                 <!-- Testimonial Content -->
-                <div class="testimonial-content">
+                <div class="testimonial-content" data-aos="fade-up">
                     <div class="quote-icon">"</div>
 
                     <div class="testimonial-text">
@@ -406,11 +411,12 @@
             </div>
         </div>
     </section>
+    <!-- Testimonial Section  End -->
 
-    <!-- Subscribe Section -->
+    <!-- Subscribe Section Start -->
     <section class="subscribe-section">
         <div class="container">
-            <div class="subscribe-content">
+            <div class="subscribe-content" data-aos="zoom-in">
                 <h2>SUBSCRIBE US NOW</h2>
                 <p>Get latest news, updates and deals directly mailed to your inbox.</p>
 
@@ -510,6 +516,17 @@
         </div>
     </footer>
     <!-- Footer End -->
+
+    <!-- AOS CDN -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 80
+        });
+    </script>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

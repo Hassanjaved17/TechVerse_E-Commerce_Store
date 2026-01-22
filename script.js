@@ -374,7 +374,7 @@ function showNotification(message) {
 // ===============================================
 // AUTO SLIDE (OPTIONAL)
 // ===============================================
- 
+
 
 
 // ===============================================
@@ -400,7 +400,7 @@ function showSlide(index) {
     // Remove active class from all slides and dots
     slides.forEach(slide => slide.classList.remove('active'));
     dots.forEach(dot => dot.classList.remove('active'));
-    
+
     // Add active class to current slide and dot
     slides[index].classList.add('active');
     dots[index].classList.add('active');
@@ -489,6 +489,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length > 0) {
         showSlide(0);
     }
+});
+
+
+// Scroll Spy Functionality
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLinks.forEach(link => link.classList.remove("active"));
+
+            const activeLink = document.querySelector(
+                `.nav-links a[href="#${sectionId}"]`
+            );
+
+            if (activeLink) activeLink.classList.add("active");
+        }
+    });
 });
 
 
