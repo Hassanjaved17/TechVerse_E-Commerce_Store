@@ -1,4 +1,4 @@
-// TECHVERSE - JavaScript Functionality
+
 
 // ===== MOBILE NAVIGATION TOGGLE =====
 const navToggle = document.getElementById('navToggle');
@@ -41,7 +41,7 @@ if (navToggle && navMenu) {
     });
 }
 
-// ===== CART FUNCTIONALITY =====
+// Cart Functionality
 let cartCount = 0;
 const cartCountElement = document.querySelector('.cart span');
 const addToCartButtons = document.querySelectorAll('.product-card button');
@@ -82,7 +82,7 @@ if (addToCartButtons) {
     });
 }
 
-// ===== ADD BOUNCE ANIMATION FOR CART =====
+// ===== Add Bounce Animation For Cart
 const style = document.createElement('style');
 style.textContent = `
     @keyframes bounce {
@@ -93,7 +93,7 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-// ===== SEARCH FUNCTIONALITY (BASIC) =====
+// Search Icon Functionality
 const searchIcon = document.querySelector('.fa-search');
 if (searchIcon) {
     searchIcon.addEventListener('click', () => {
@@ -101,7 +101,7 @@ if (searchIcon) {
     });
 }
 
-// ===== USER ICON FUNCTIONALITY =====
+// User Icon Functionality
 const userIcon = document.querySelector('.fa-user');
 if (userIcon) {
     userIcon.addEventListener('click', () => {
@@ -109,25 +109,7 @@ if (userIcon) {
     });
 }
 
-// Product Image Swap for Mobile
-// const productImages = document.querySelectorAll('.product-image');
-// const isTouchDevice = 'ontouchstart' in window;
-
-// if (isTouchDevice) {
-//     productImages.forEach(image => {
-//         image.addEventListener('click', function (e) {
-//             e.stopPropagation();
-//             this.classList.toggle('active');
-//         });
-//     });
-
-//     document.addEventListener('click', function (e) {
-//         if (!e.target.closest('.product-image')) {
-//             productImages.forEach(img => img.classList.remove('active'));
-//         }
-//     });
-// }
-
+// Swap Product Images on Hover For Desktop and Tap for Mobile
 document.querySelectorAll('.product-image img').forEach(img => {
     const mainSrc = img.dataset.main;
     const hoverSrc = img.dataset.hover;
@@ -156,7 +138,7 @@ document.querySelectorAll('.product-image img').forEach(img => {
             img.classList.remove(outClass);
             img.classList.add(inClass);
 
-            img.offsetHeight; // force reflow
+            img.offsetHeight;
 
             img.classList.remove(inClass);
             img.classList.add('center');
@@ -180,15 +162,7 @@ document.querySelectorAll('.product-image img').forEach(img => {
     });
 });
 
-
-
-
-
-
-// ===============================================
-// READ MORE / READ LESS FUNCTIONALITY
-// ===============================================
-
+// Read More / Read Less Functionality
 function toggleReadMore() {
     const moreText = document.querySelector('.more-text');
     const btn = document.querySelector('.read-more-btn');
@@ -202,10 +176,7 @@ function toggleReadMore() {
     }
 }
 
-// ===============================================
-// TESTIMONIAL SLIDER FUNCTIONALITY
-// ===============================================
-
+// Testimonial Slider Functionality
 const testimonials = [
     {
         text: "TechVerse has completely transformed my tech shopping experience. Their selection of gadgets is unmatched, and the customer service is exceptional. I recently purchased a smart watch and wireless earbuds, and both products exceeded my expectations.",
@@ -309,9 +280,7 @@ function prevTestimonial() {
     }, 50);
 }
 
-// ===============================================
-// SUBSCRIBE FORM FUNCTIONALITY
-// ===============================================
+// Newsletter Subscription Functionality
 
 function handleSubscribe(event) {
     event.preventDefault();
@@ -323,7 +292,7 @@ function handleSubscribe(event) {
         // Show success message
         alert(`Thank you for subscribing! We'll send updates to ${email}`);
 
-        // Or use a better notification
+        // Show notification
         showNotification('Successfully subscribed!');
 
         // Clear input
@@ -331,9 +300,8 @@ function handleSubscribe(event) {
     }
 }
 
-// Optional: Better notification function
+//  Better notification function
 function showNotification(message) {
-    // Create notification element
     const notification = document.createElement('div');
     notification.textContent = message;
     notification.style.cssText = `
@@ -371,26 +339,12 @@ function showNotification(message) {
     }, 3000);
 }
 
-// ===============================================
-// AUTO SLIDE (OPTIONAL)
-// ===============================================
-
-
-
-// ===============================================
-// INITIALIZE ON PAGE LOAD
-// ===============================================
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize first testimonial
     updateTestimonial();
 });
 
-
-// ===============================================
-// PROMOTIONAL BANNER SLIDER
-// ===============================================
-
+// Banner Slider Functionality
 let currentSlide = 0;
 const slides = document.querySelectorAll('.banner-slide');
 const dots = document.querySelectorAll('.slider-dots .dot');
@@ -516,9 +470,12 @@ window.addEventListener("scroll", () => {
     });
 });
 
-
-// ===============================================
-// END OF SCRIPT
-// ===============================================
-
 // ===== END OF SCRIPT =====
+
+
+/*
+  Project : TechVerse
+  Author  : Hassan Javed
+  Role    : Frontend Design & Development
+  Year    : 2026
+*/
