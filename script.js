@@ -128,7 +128,6 @@ if (userIcon) {
 //     });
 // }
 
-
 document.querySelectorAll('.product-image img').forEach(img => {
     const mainSrc = img.dataset.main;
     const hoverSrc = img.dataset.hover;
@@ -181,5 +180,320 @@ document.querySelectorAll('.product-image img').forEach(img => {
     });
 });
 
+
+
+
+
+
+// ===============================================
+// READ MORE / READ LESS FUNCTIONALITY
+// ===============================================
+
+function toggleReadMore() {
+    const moreText = document.querySelector('.more-text');
+    const btn = document.querySelector('.read-more-btn');
+
+    if (moreText.classList.contains('show')) {
+        moreText.classList.remove('show');
+        btn.textContent = 'Read More';
+    } else {
+        moreText.classList.add('show');
+        btn.textContent = 'Read Less';
+    }
+}
+
+// ===============================================
+// TESTIMONIAL SLIDER FUNCTIONALITY
+// ===============================================
+
+const testimonials = [
+    {
+        text: "TechVerse has completely transformed my tech shopping experience. Their selection of gadgets is unmatched, and the customer service is exceptional. I recently purchased a smart watch and wireless earbuds, and both products exceeded my expectations.",
+        moreText: " The free delivery was incredibly fast, and the quality guarantee gave me peace of mind. I've recommended TechVerse to all my friends and family. The daily offers keep me coming back, and I love how secure their payment system is.",
+        name: "SARAH JOHNSON",
+        rating: 4.5
+    },
+    {
+        text: "As a tech enthusiast, I'm always looking for the latest gadgets. TechVerse never disappoints! The VR headset I bought was amazing, and their prices are unbeatable. The website is easy to navigate, and checkout was seamless.",
+        moreText: " Customer support answered all my questions promptly. The product arrived perfectly packaged and works flawlessly. I'll definitely be shopping here again for all my tech needs!",
+        name: "MICHAEL CHEN",
+        rating: 5
+    },
+    {
+        text: "I was hesitant to shop online for electronics, but TechVerse made it so easy! The quality guarantee and secure payment options gave me confidence. My smart speaker arrived in perfect condition, and the sound quality is incredible.",
+        moreText: " The daily deals helped me save money on accessories too. TechVerse has become my go-to store for all things tech. Highly recommend to anyone looking for reliable gadgets!",
+        name: "EMILY RODRIGUEZ",
+        rating: 4.5
+    }
+];
+
+let currentTestimonial = 0;
+
+function updateTestimonial() {
+    const testimonial = testimonials[currentTestimonial];
+    const textElement = document.getElementById('testimonialText');
+    const nameElement = document.querySelector('.customer-name');
+    const btn = document.querySelector('.read-more-btn');
+
+    // Update text
+    textElement.innerHTML = `
+        ${testimonial.text}
+        <span class="more-text">${testimonial.moreText}</span>
+    `;
+
+    // Update name
+    nameElement.textContent = testimonial.name;
+
+    // Reset read more button
+    btn.textContent = 'Read More';
+
+    // Update star rating
+    updateStarRating(testimonial.rating);
+}
+
+function updateStarRating(rating) {
+    const starContainer = document.querySelector('.star-rating');
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+
+    let starsHTML = '';
+
+    // Full stars
+    for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fa fa-star"></i>';
+    }
+
+    // Half star
+    if (hasHalfStar) {
+        starsHTML += '<i class="fa fa-star-half-alt"></i>';
+    }
+
+    // Empty stars
+    const emptyStars = 5 - Math.ceil(rating);
+    for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="far fa-star"></i>';
+    }
+
+    starContainer.innerHTML = starsHTML;
+}
+
+function nextTestimonial() {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    updateTestimonial();
+
+    // Animation effect
+    const content = document.querySelector('.testimonial-content');
+    content.style.opacity = '0';
+    content.style.transform = 'translateX(30px)';
+
+    setTimeout(() => {
+        content.style.transition = 'all 0.5s ease';
+        content.style.opacity = '1';
+        content.style.transform = 'translateX(0)';
+    }, 50);
+}
+
+function prevTestimonial() {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    updateTestimonial();
+
+    // Animation effect
+    const content = document.querySelector('.testimonial-content');
+    content.style.opacity = '0';
+    content.style.transform = 'translateX(-30px)';
+
+    setTimeout(() => {
+        content.style.transition = 'all 0.5s ease';
+        content.style.opacity = '1';
+        content.style.transform = 'translateX(0)';
+    }, 50);
+}
+
+// ===============================================
+// SUBSCRIBE FORM FUNCTIONALITY
+// ===============================================
+
+function handleSubscribe(event) {
+    event.preventDefault();
+
+    const input = event.target.querySelector('input');
+    const email = input.value;
+
+    if (email) {
+        // Show success message
+        alert(`Thank you for subscribing! We'll send updates to ${email}`);
+
+        // Or use a better notification
+        showNotification('Successfully subscribed!');
+
+        // Clear input
+        input.value = '';
+    }
+}
+
+// Optional: Better notification function
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4aa3df;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(notification);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideIn 0.3s ease reverse';
+        setTimeout(() => {
+            notification.remove();
+            style.remove();
+        }, 300);
+    }, 3000);
+}
+
+// ===============================================
+// AUTO SLIDE (OPTIONAL)
+// ===============================================
+ 
+
+
+// ===============================================
+// INITIALIZE ON PAGE LOAD
+// ===============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize first testimonial
+    updateTestimonial();
+});
+
+
+// ===============================================
+// PROMOTIONAL BANNER SLIDER
+// ===============================================
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.banner-slide');
+const dots = document.querySelectorAll('.slider-dots .dot');
+
+// Show specific slide
+function showSlide(index) {
+    // Remove active class from all slides and dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Add active class to current slide and dot
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+// Go to specific slide
+function goToSlide(index) {
+    currentSlide = index;
+    showSlide(currentSlide);
+}
+
+// Next slide
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Previous slide
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto slide every 5 seconds
+let autoSlideInterval = setInterval(nextSlide, 5000);
+
+// Pause auto-slide on hover
+const bannerSlider = document.querySelector('.banner-slider');
+
+if (bannerSlider) {
+    bannerSlider.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+
+    bannerSlider.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        prevSlide();
+        // Reset auto-slide timer
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    } else if (e.key === 'ArrowRight') {
+        nextSlide();
+        // Reset auto-slide timer
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+});
+
+// Touch/Swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (bannerSlider) {
+    bannerSlider.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    bannerSlider.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+}
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        // Swipe left - next slide
+        nextSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+        // Swipe right - previous slide
+        prevSlide();
+    }
+    // Reset auto-slide timer
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 5000);
+}
+
+// Initialize first slide
+document.addEventListener('DOMContentLoaded', () => {
+    if (slides.length > 0) {
+        showSlide(0);
+    }
+});
+
+
+// ===============================================
+// END OF SCRIPT
+// ===============================================
 
 // ===== END OF SCRIPT =====
